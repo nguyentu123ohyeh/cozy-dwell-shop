@@ -1,0 +1,257 @@
+
+/* ============================================================
+   PAUL LAWRENCE JR LISTER — emergency layout patch
+   Add this at the END of public/assets/css/style.css
+   ============================================================ */
+
+/* Header logo for long personal brand name */
+.site-header .nav {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto minmax(150px, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.site-header .logo,
+.site-footer .logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45em;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  white-space: nowrap;
+  line-height: 1.1;
+  letter-spacing: clamp(3px, 0.45vw, 8px);
+  font-size: clamp(11px, 0.95vw, 15px);
+  border: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.logo .brand-logo-main {
+  color: var(--espresso, #3b281f);
+}
+
+.logo .brand-logo-accent {
+  color: var(--copper-2, #b87333);
+}
+
+.nav-links {
+  justify-self: center;
+}
+
+.nav-right {
+  justify-self: end;
+}
+
+.site-footer .logo {
+  white-space: normal;
+  flex-wrap: wrap;
+  letter-spacing: 5px;
+  font-size: 18px;
+}
+
+/* Make reveal content visible even if JS has an error while testing */
+.reveal:not(.in) {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cart layout fix */
+#cart-wrap {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.cart-empty-wrap {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 90px;
+}
+
+.empty-state {
+  width: min(880px, 100%);
+  min-height: 430px;
+  background: rgba(255,255,255,.72);
+  border-radius: 24px;
+  padding: 72px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 24px 70px rgba(65,42,30,.08);
+}
+
+.empty-icon,
+.empty-state .icon {
+  font-size: 42px;
+  color: var(--copper, #b87333);
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+.empty-state h2 {
+  max-width: 780px;
+  margin: 0 auto 18px;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.12;
+}
+
+.empty-state p {
+  margin: 0 0 28px;
+  font-size: 18px;
+}
+
+.cart-layout {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 28px;
+  align-items: start;
+  padding: 40px 0 90px;
+}
+
+.cart-items {
+  display: grid;
+  gap: 18px;
+}
+
+.cart-row {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 22px;
+  align-items: center;
+  background: rgba(255,255,255,.75);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 16px 45px rgba(65,42,30,.06);
+}
+
+.cart-img,
+.ci {
+  width: 130px;
+  height: 110px;
+  background: #fff;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cart-img img,
+.ci img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.cart-info h4,
+.cart-row h4 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.cart-meta,
+.cart-row .meta {
+  margin: 0 0 6px;
+  color: var(--espresso-2, #6f5a4d);
+  font-size: 14px;
+}
+
+.cart-price {
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.cart-right,
+.cart-row .right {
+  text-align: right;
+}
+
+.cart-subtotal,
+.cart-row .sub {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.cart-summary {
+  position: sticky;
+  top: 110px;
+  background: rgba(255,255,255,.82);
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: 0 20px 60px rgba(65,42,30,.08);
+}
+
+.cart-actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-block {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .site-header .nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .site-header .logo {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header .logo {
+    max-width: 210px;
+    flex-wrap: wrap;
+    row-gap: 2px;
+    line-height: 1.2;
+  }
+
+  .cart-row {
+    grid-template-columns: 92px 1fr;
+  }
+
+  .cart-img,
+  .ci {
+    width: 92px;
+    height: 92px;
+  }
+
+  .cart-right,
+  .cart-row .right {
+    grid-column: 1 / -1;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .empty-state {
+    padding: 54px 22px;
+    min-height: 360px;
+  }
+}
