@@ -1,5 +1,5 @@
 /* ============================================================
-   CARLY — Premium Living Room & Smart Home
+   PAUL LAWRENCE JR LISTER — Premium Living Room & Smart Home
    Palette: ivory, ceramic white, brushed copper, smoke sage, espresso
    ============================================================ */
 :root{
@@ -469,3 +469,424 @@ section{padding:90px 0;position:relative}
 }
 .concept blockquote::before{content:"❝";color:var(--copper);font-size:3rem;display:block;line-height:1}
 .concept .author{margin-top:24px;letter-spacing:.2em;font-size:.8rem;color:var(--copper);text-transform:uppercase}
+
+
+/* =========================================================
+   Emergency PAUL LAWRENCE JR LISTER layout patch v2
+   ========================================================= */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .42em;
+  white-space: nowrap;
+  box-sizing: border-box;
+  line-height: 1.05;
+  max-width: 100%;
+}
+
+.logo .brand-logo-main,
+.logo .brand-logo-accent {
+  display: inline-block;
+}
+
+.logo .brand-logo-accent {
+  color: var(--copper-2, #b87333);
+}
+
+.site-header .logo {
+  min-width: auto;
+  max-width: 430px;
+  padding: 10px 14px;
+  font-size: clamp(11px, .95vw, 16px);
+  letter-spacing: clamp(1.5px, .28vw, 5px);
+  overflow: visible;
+  border-width: 0;
+}
+
+.site-header .nav {
+  gap: clamp(12px, 2vw, 34px);
+}
+
+.site-header .nav-links {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.site-footer .logo {
+  justify-content: flex-start;
+  white-space: normal;
+  line-height: 1.15;
+  letter-spacing: 3px;
+  gap: .45em;
+}
+
+@media (max-width: 980px) {
+  .site-header .logo {
+    max-width: 280px;
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header .logo {
+    max-width: 220px;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+  }
+}
+
+/* Cart center/layout fix */
+#cart-wrap { width: 100%; margin: 0 auto; }
+.cart-empty-wrap {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 90px;
+}
+.empty-state {
+  width: min(880px, 100%);
+  min-height: 430px;
+  background: rgba(255,255,255,.72);
+  border-radius: 24px;
+  padding: 72px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 24px 70px rgba(65,42,30,.08);
+}
+.empty-icon, .empty-state .icon {
+  font-size: 42px;
+  color: var(--copper, #b87333);
+  margin-bottom: 24px;
+  line-height: 1;
+}
+.cart-layout {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 28px;
+  align-items: start;
+  padding: 40px 0 90px;
+}
+.cart-items { display: grid; gap: 18px; }
+.cart-row {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 22px;
+  align-items: center;
+  background: rgba(255,255,255,.75);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 16px 45px rgba(65,42,30,.06);
+}
+.cart-img, .cart-row .ci {
+  width: 130px;
+  height: 110px;
+  background: #fff;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.cart-img img, .cart-row .ci img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+}
+.cart-right, .cart-row .right { text-align: right; }
+@media (max-width: 900px) {
+  .cart-layout { grid-template-columns: 1fr; }
+  .cart-summary { position: static; }
+}
+@media (max-width: 620px) {
+  .cart-row { grid-template-columns: 92px 1fr; }
+  .cart-img, .cart-row .ci { width: 92px; height: 92px; }
+  .cart-right, .cart-row .right {
+    grid-column: 1 / -1;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* ===== PAUL LAWRENCE FINAL CONSOLIDATED PATCH ===== */
+
+/* Header logo: long name support */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .42em;
+  white-space: nowrap;
+  box-sizing: border-box;
+  line-height: 1.05;
+  max-width: 100%;
+}
+.logo .brand-logo-main,
+.logo .brand-logo-accent { display: inline-block; }
+.logo .brand-logo-accent { color: var(--copper-2, #b87333); }
+.site-header .logo {
+  min-width: auto;
+  max-width: 430px;
+  padding: 10px 14px;
+  font-size: clamp(11px, .95vw, 16px);
+  letter-spacing: clamp(1.5px, .28vw, 5px);
+  overflow: visible;
+  border-width: 0;
+}
+.site-header .nav { gap: clamp(12px, 2vw, 34px); }
+.site-header .nav-links { flex-wrap: wrap; justify-content: center; }
+
+/* Product images must show full product */
+.product-media img,
+.gallery-main img,
+.thumbs img,
+.summary-item .ci img,
+.cc-item .ci img,
+.cart-img img,
+.cart-row .ci img {
+  object-fit: contain !important;
+}
+.product-media,
+.gallery-main,
+.thumbs .thumb,
+.cart-img,
+.cart-row .ci,
+.summary-item .ci,
+.cc-item .ci {
+  background: #fff;
+}
+
+/* Featured products on home */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  align-items: stretch;
+}
+@media (max-width: 960px) {
+  .feat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .feat-grid { grid-template-columns: 1fr; }
+}
+
+/* Cart center/layout fix */
+#cart-wrap { width: 100%; margin: 0 auto; }
+.cart-empty-wrap {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 90px;
+}
+.empty-state {
+  width: min(880px, 100%);
+  min-height: 430px;
+  background: rgba(255,255,255,.72);
+  border-radius: 24px;
+  padding: 72px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 24px 70px rgba(65,42,30,.08);
+}
+.empty-icon, .empty-state .icon {
+  font-size: 42px;
+  color: var(--copper, #b87333);
+  margin-bottom: 24px;
+  line-height: 1;
+}
+.cart-layout {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 28px;
+  align-items: start;
+  padding: 40px 0 90px;
+}
+.cart-items { display: grid; gap: 18px; }
+.cart-row {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 22px;
+  align-items: center;
+  background: rgba(255,255,255,.75);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 16px 45px rgba(65,42,30,.06);
+}
+.cart-img, .cart-row .ci {
+  width: 130px;
+  height: 110px;
+  background: #fff;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.cart-img img, .cart-row .ci img {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+.cart-right, .cart-row .right { text-align: right; }
+@media (max-width: 900px) {
+  .cart-layout { grid-template-columns: 1fr; }
+  .cart-summary { position: static; }
+}
+@media (max-width: 620px) {
+  .cart-row { grid-template-columns: 92px 1fr; }
+  .cart-img, .cart-row .ci { width: 92px; height: 92px; }
+  .cart-right, .cart-row .right {
+    grid-column: 1 / -1;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .empty-state { padding: 54px 22px; min-height: 360px; }
+}
+
+/* Footer: premium but simple */
+.site-footer {
+  background: #3b281f;
+  color: rgba(255,255,255,.74);
+}
+.site-footer .foot-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.25fr) .7fr .8fr minmax(280px, 1.15fr);
+  gap: 48px;
+  align-items: start;
+}
+.footer-brand-block { max-width: 420px; }
+.footer-logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 26px;
+  line-height: 1;
+}
+.footer-logo-top,
+.footer-logo-bottom {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.footer-logo-top {
+  color: var(--ceramic);
+  font-size: 30px;
+  letter-spacing: 8px;
+}
+.footer-logo-bottom {
+  color: var(--copper-2);
+  font-size: 34px;
+  letter-spacing: 10px;
+  padding-left: 42px;
+  position: relative;
+}
+.footer-logo-bottom::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 26px;
+  height: 1px;
+  background: var(--copper-2);
+  opacity: .85;
+}
+.site-footer .foot-desc {
+  max-width: 360px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.72);
+}
+.site-footer h4 {
+  color: var(--ceramic);
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 22px;
+}
+.footer-links a {
+  display: block;
+  margin-bottom: 14px;
+  color: rgba(255,255,255,.66);
+  text-decoration: none;
+  transition: color .25s ease, transform .25s ease;
+}
+.footer-links a:hover {
+  color: var(--copper-2);
+  transform: translateX(4px);
+}
+.footer-studio-simple { max-width: 340px; }
+.studio-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 0 13px;
+  color: rgba(255,255,255,.72);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.studio-line strong {
+  color: var(--ceramic);
+  font-weight: 700;
+  letter-spacing: .4px;
+}
+.studio-icon {
+  width: 22px;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--copper-2);
+  background: rgba(255,255,255,.06);
+  font-size: 12px;
+  margin-top: 1px;
+}
+.studio-line a {
+  display: inline;
+  padding: 0;
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+  word-break: break-word;
+}
+.studio-line a:hover { color: var(--copper-2); }
+.site-footer .foot-bottom {
+  margin-top: 46px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.48);
+  font-size: 14px;
+}
+@media (max-width: 1050px) {
+  .site-footer .foot-grid { grid-template-columns: 1fr 1fr; gap: 42px; }
+}
+@media (max-width: 620px) {
+  .site-footer .foot-grid { grid-template-columns: 1fr; }
+  .footer-logo-top { font-size: 25px; letter-spacing: 6px; }
+  .footer-logo-bottom { font-size: 28px; letter-spacing: 7px; padding-left: 34px; }
+  .footer-logo-bottom::before { width: 22px; }
+  .footer-studio-simple { max-width: none; }
+}

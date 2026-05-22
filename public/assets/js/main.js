@@ -1,5 +1,5 @@
 /* ============================================================
-   CARLY — main.js
+   PAUL LAWRENCE JR LISTER — main.js
    Handles rendering, cart, pagination, gallery, checkout,
    contact inquiry, cookie banner, reveal animations.
    product.js MUST be loaded before this file.
@@ -20,8 +20,8 @@
   }
 
   const PRODUCTS = window.PRODUCTS;
-  const CART_KEY = "carly_cart";
-  const COOKIE_KEY = "carly_cookie_pref";
+  const CART_KEY = "paul_lawrence_jr_lister_cart";
+  const COOKIE_KEY = "paul_lawrence_cookie_pref";
   const $ = (s,c)=>(c||document).querySelector(s);
   const $$ = (s,c)=>Array.from((c||document).querySelectorAll(s));
   const money = v => "$"+Number(v).toFixed(2);
@@ -62,7 +62,7 @@
   }
 
   // Expose minimal API for inline use
-  window.Carly = { addToCart, getCart, clearCart, updateCartBadge };
+  window.PaulLawrenceStore = { addToCart, getCart, clearCart, updateCartBadge };
 
   /* ---------- Toast ---------- */
   function toast(msg){
@@ -106,7 +106,7 @@
     return `<article class="product-card reveal">
       <a class="product-media" href="product-detail.html?id=${p.id}">
         <img src="${p.image}" alt="${p.name}" loading="lazy"
-             onerror="this.style.padding='40px';this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23fbf8f2%22/><text x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23b87333%22 font-family=%22serif%22 font-size=%2210%22>Carly</text></svg>'">
+             onerror="this.style.padding='40px';this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23fbf8f2%22/><text x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23b87333%22 font-family=%22serif%22 font-size=%2210%22>PAUL LAWRENCE JR LISTER</text></svg>'">
       </a>
       <div class="product-body">
         <span class="product-cat">${p.category}</span>
@@ -129,7 +129,7 @@
     const totalPages = Math.ceil(PRODUCTS.length / PER);
     let page = 1;
 
-    function render(){
+    function render(shouldScroll=false){
       const start = (page-1)*PER;
       const items = PRODUCTS.slice(start, start+PER);
       grid.innerHTML = items.map(cardHTML).join("");
@@ -142,7 +142,7 @@
       btns += `<button data-page="next" ${page===totalPages?"disabled":""}>›</button>`;
       pag.innerHTML = btns;
       initReveal();
-      window.scrollTo({top: $("#products-grid").offsetTop - 100, behavior:"smooth"});
+      if(shouldScroll){ window.scrollTo({top: $("#products-grid").offsetTop - 100, behavior:"smooth"}); }
     }
     grid.parentElement.addEventListener("click", e=>{
       const b = e.target.closest("[data-page]");
@@ -151,7 +151,7 @@
         if(v==="prev" && page>1) page--;
         else if(v==="next" && page<totalPages) page++;
         else if(!isNaN(parseInt(v))) page = parseInt(v);
-        render();
+        render(true);
       }
       const a = e.target.closest("[data-add]");
       if(a){ addToCart(a.dataset.add); }
@@ -172,6 +172,7 @@
       const a = e.target.closest("[data-add]");
       if(a) addToCart(a.dataset.add);
     });
+    initReveal();
   }
 
   /* ---------- Product detail ---------- */
@@ -189,7 +190,7 @@
       </div>`;
       return;
     }
-    document.title = p.name + " — Carly";
+    document.title = p.name + " — PAUL LAWRENCE JR LISTER";
     const gallery = (p.images && p.images.length ? p.images : [p.image]);
     wrap.innerHTML = `
       <div class="container">
@@ -234,48 +235,61 @@
   function initCart(){
     const wrap = $("#cart-wrap");
     if(!wrap) return;
+
     function render(){
       const cart = getCart();
+
       if(!cart.length){
+        wrap.className = "cart-empty-wrap";
         wrap.innerHTML = `<div class="empty-state">
-          <div class="icon">◇</div>
+          <div class="empty-icon">◇</div>
           <h2>Your living room selection is empty</h2>
           <p>Discover pieces curated for elegant, smart living.</p>
           <a class="btn btn-primary" href="products.html">Browse Products</a>
         </div>`;
+        updateCartBadge();
         return;
       }
+
+      wrap.className = "cart-layout";
+
       const items = cart.map(i=>`
         <div class="cart-row">
-          <div class="ci"><img src="${i.image}" alt="${i.name}"></div>
-          <div>
+          <div class="cart-img"><img src="${i.image}" alt="${i.name}"></div>
+          <div class="cart-info">
             <h4>${i.name}</h4>
-            <div class="meta">${i.category} · ${money(i.price)}</div>
+            <p class="cart-meta">${i.category}</p>
+            <p class="cart-price">${money(i.price)}</p>
             <div class="qty">
-              <button data-dec="${i.id}">−</button>
+              <button type="button" data-dec="${i.id}">−</button>
               <span>${i.qty}</span>
-              <button data-inc="${i.id}">+</button>
+              <button type="button" data-inc="${i.id}">+</button>
             </div>
           </div>
-          <div class="right">
-            <div class="sub">${money(i.price*i.qty)}</div>
-            <button class="remove" data-rm="${i.id}">Remove</button>
+          <div class="cart-right">
+            <div class="cart-subtotal">${money(i.price*i.qty)}</div>
+            <button type="button" class="remove" data-rm="${i.id}">Remove</button>
           </div>
         </div>`).join("");
+
       const total = calculateCartTotal();
+
       wrap.innerHTML = `
         <div class="cart-items">${items}</div>
         <aside class="cart-summary">
           <h3>Order Summary</h3>
-          <div class="sum-row"><span>Subtotal</span><span>${money(total)}</span></div>
-          <div class="sum-row"><span>Estimated Shipping</span><span>Calculated at checkout</span></div>
-          <div class="sum-row total"><span>Estimated Total</span><span>${money(total)}</span></div>
+          <div class="sum-row"><span>Subtotal</span><strong>${money(total)}</strong></div>
+          <div class="sum-row"><span>Estimated Shipping</span><strong>Calculated at checkout</strong></div>
+          <div class="sum-row total"><span>Estimated Total</span><strong>${money(total)}</strong></div>
           <div class="cart-actions">
             <a class="btn btn-primary btn-block" href="checkout.html">Checkout</a>
             <a class="btn btn-outline btn-block" href="products.html">Continue Shopping</a>
           </div>
         </aside>`;
+
+      updateCartBadge();
     }
+
     wrap.addEventListener("click", e=>{
       const inc = e.target.closest("[data-inc]");
       const dec = e.target.closest("[data-dec]");
@@ -284,6 +298,7 @@
       else if(dec){ updateQuantity(dec.dataset.dec, -1); render(); }
       else if(rm){ removeFromCart(rm.dataset.rm); render(); }
     });
+
     render();
   }
 
@@ -369,7 +384,7 @@
     const wrap = $("#thank-content");
     if(!wrap) return;
     const method = new URLSearchParams(location.search).get("method");
-    const ref = "CARLY-"+Date.now().toString(36).toUpperCase().slice(-8);
+    const ref = "PAUL LAWRENCE JR LISTER-"+Date.now().toString(36).toUpperCase().slice(-8);
     let title, msg, status;
     if(method === "paypal"){
       title = "PayPal Payment Completed";
@@ -446,7 +461,7 @@
         ${more>0 ? `<a class="cc-more" href="cart.html">View all ${cart.length} items in cart →</a>` : `<a class="cc-more" href="cart.html">Back to cart →</a>`}`;
       // Auto-fill message
       const lines = cart.map(i=>`• ${i.name} (${i.category}) — Qty ${i.qty} — ${money(i.price*i.qty)}`).join("\n");
-      messageEl.value = "Hello Carly team,\n\nI'm interested in the following items from my selection:\n\n"+lines+
+      messageEl.value = "Hello PAUL LAWRENCE JR LISTER team,\n\nI'm interested in the following items from my selection:\n\n"+lines+
         `\n\nEstimated total: ${money(calculateCartTotal())}\n\nCould you please confirm availability and shipping details?\n\nThank you.`;
     }
     function setType(t){

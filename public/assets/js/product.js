@@ -1,270 +1,530 @@
 /* ============================================================
-   CARLY product catalog — exactly 22 products
+   PAUL LAWRENCE JR LISTER product catalog — exactly 22 products
    Loaded BEFORE main.js on every page.
+   Prices converted to USD. Product images use assets/images/product/.
+
+   Mirror Decor note: 3 mirror-related products are included:
+   ID 9 Hexagon Mirror Wall Stickers, ID 11 HOME Mirror Wall Decals,
+   ID 21 Round Decorating Mirror.
    ============================================================ */
+
 window.PRODUCTS = [
   {
-    id: 1,
-    name: "Aurelia Smart Air Purifier",
-    category: "Air Purification",
-    price: 389,
-    short: "Whisper-quiet HEPA-13 purification with ambient mood ring.",
-    long: "Aurelia blends laboratory-grade HEPA-13 filtration with a soft champagne halo that mirrors the air quality of your living room in real time. The ceramic-finish shell hides four-stage filtration and a smart inverter motor that adapts to noise-sensitive moments.",
-    image: "assets/images/1.webp",
-    images: ["assets/images/1.webp","assets/images/1.1.webp","assets/images/1.2.webp"],
-    features: ["4-stage HEPA-13 filtration","Real-time PM2.5 sensor","Whisper mode 22 dB","App + voice control","Copper-trim ceramic housing"],
-    care: "Vacuum the pre-filter every 4 weeks. Replace HEPA cartridge every 9–12 months for optimal performance."
+    "id": 1,
+    "name": "Plant Extract Dust Box",
+    "category": "Air Purification",
+    "price": 6.77,
+    "short": "Plant-based dust removal box for passive indoor air freshness.",
+    "long": "A compact indoor dust removal box made with plant extract material. It works passively without electricity, helping absorb airborne dust and particles while adding subtle freshness to bedrooms, living rooms, offices, wardrobes and small spaces.",
+    "features": [
+      "Plant extract formula",
+      "No electricity required",
+      "120g net content",
+      "Passive dust absorption",
+      "Suitable for living room, bedroom and office"
+    ],
+    "care": "Place in a dry and ventilated area. Replace when fragrance or absorption effect becomes weak. Keep away from children and direct sunlight.",
+    "image": "assets/images/product/1.webp",
+    "images": [
+      "assets/images/product/1.webp",
+      "assets/images/product/1.1.webp",
+      "assets/images/product/1.2.webp",
+      "assets/images/product/1.3.webp",
+      "assets/images/product/1.4.webp"
+    ]
   },
   {
-    id: 2,
-    name: "Lumière Ambient Floor Lamp",
-    category: "Ambient Lighting",
-    price: 268,
-    short: "Hand-blown opal glass diffuser on a brushed copper stem.",
-    long: "Lumière casts a warm, sun-set glow across the room thanks to a tunable 1800–4000K LED engine. Touch-dimmable with a soft tap on the copper stem, it pairs effortlessly with the Carly Home app for scene presets.",
-    image: "assets/images/2.webp",
-    images: ["assets/images/2.webp","assets/images/2.1.webp","assets/images/2.2.webp"],
-    features: ["1800–4000K tunable white","Touch dimming","16 ambient presets","Recyclable brushed copper","Energy class A"],
-    care: "Wipe the opal glass with a dry microfibre cloth. Avoid alcohol-based cleaners on the copper finish."
+    "id": 2,
+    "name": "Multi-Function Air Magic Box",
+    "category": "Air Purification",
+    "price": 6.77,
+    "short": "Long-lasting dust collection and deodorizing air box.",
+    "long": "A multi-functional air magic box designed for natural air purification and odor reduction. It is suitable for cars, bedrooms, living rooms, kitchens, pet areas and small spaces, helping maintain a fresher indoor environment without power or complicated maintenance.",
+    "features": [
+      "200g capacity",
+      "No power source required",
+      "Long-lasting use",
+      "Helps reduce odors",
+      "Compact and easy to place"
+    ],
+    "care": "Open and place in the desired area. Avoid spilling or puncturing the container. Replace after the effective period or when performance decreases.",
+    "image": "assets/images/product/2.webp",
+    "images": [
+      "assets/images/product/2.webp",
+      "assets/images/product/2.1.webp",
+      "assets/images/product/2.2.webp",
+      "assets/images/product/2.3.webp"
+    ]
   },
   {
-    id: 3,
-    name: "Sage Smart Aroma Diffuser",
-    category: "Intelligent Aroma & Wellness",
-    price: 142,
-    short: "Ultrasonic diffusion with circadian-linked scent scheduling.",
-    long: "A 300 ml ceramic well releases a cool, fragrant mist on a schedule that follows the rhythm of your day. Choose from 8 light moods or sync with sunrise via the app.",
-    image: "assets/images/3.webp",
-    images: ["assets/images/3.webp","assets/images/3.1.webp"],
-    features: ["300 ml ceramic reservoir","Circadian schedule","8 light moods","Auto-off safety","BPA-free components"],
-    care: "Clean the well weekly with warm water and a soft brush. Use only pure essential oils."
+    "id": 3,
+    "name": "Cherry Blossom Fresh Air Box",
+    "category": "Air Freshener & Deodorizer",
+    "price": 10.02,
+    "short": "Compact indoor air freshener with cherry blossom scent.",
+    "long": "A small air freshener and deodorizer box enriched with cherry blossom extract. It helps refresh indoor air and reduce unwanted odor in living rooms, bedrooms, bathrooms and office spaces while blending easily with home decor.",
+    "features": [
+      "Cherry blossom fragrance",
+      "Compact size",
+      "120g content",
+      "Easy placement",
+      "Suitable for multiple indoor spaces"
+    ],
+    "care": "Place on a flat surface in a ventilated area. Do not ingest. Keep away from heat sources and avoid direct contact with fabric or polished surfaces.",
+    "image": "assets/images/product/3.webp",
+    "images": [
+      "assets/images/product/3.webp",
+      "assets/images/product/3.1.webp",
+      "assets/images/product/3.2.webp",
+      "assets/images/product/3.3.webp",
+      "assets/images/product/3.4.webp"
+    ]
   },
   {
-    id: 4,
-    name: "Mira Decorative Smart Lamp",
-    category: "Decorative Home Accessories",
-    price: 196,
-    short: "Sculptural table light with a hand-finished ceramic body.",
-    long: "Mira is part sculpture, part lamp. Its smooth ceramic dome rests on a sage-painted base and glows from a hidden LED ring. Touch the top to cycle between three calibrated warm scenes.",
-    image: "assets/images/4.webp",
-    images: ["assets/images/4.webp"],
-    features: ["Hand-finished ceramic","3 calibrated scenes","Touch control","Cordless USB-C base","Up to 14 h runtime"],
-    care: "Recharge with the supplied USB-C cable. Keep ceramic dry."
+    "id": 4,
+    "name": "RGB Ocean Wave Projector",
+    "category": "Ambient Lighting",
+    "price": 67.99,
+    "short": "RGB LED projector for ocean wave mood lighting.",
+    "long": "An ambient RGB wall light projector that creates a realistic ocean wave effect across walls and ceilings. It is ideal for bedrooms, living rooms, gaming rooms, parties and relaxing evening spaces, with both remote and app control.",
+    "features": [
+      "Ocean wave light effect",
+      "RGB color modes",
+      "Remote and app control",
+      "Music sync function",
+      "Soft non-laser lighting"
+    ],
+    "care": "Use indoors only. Keep the projector dry and clean the surface with a soft cloth. Do not stare directly into the light source for long periods.",
+    "image": "assets/images/product/4.webp",
+    "images": [
+      "assets/images/product/4.webp",
+      "assets/images/product/4.1.webp",
+      "assets/images/product/4.2.webp",
+      "assets/images/product/4.3.webp"
+    ]
   },
   {
-    id: 5,
-    name: "Vesta Smart Throw Blanket",
-    category: "Smart Comfort Devices",
-    price: 218,
-    short: "Heated boucle throw with whisper-soft dual zones.",
-    long: "Vesta keeps two seats of the sofa precisely warm using ultra-thin carbon fibers woven into Italian boucle. Both zones are controlled from your phone or the discreet copper button.",
-    image: "assets/images/5.webp",
-    images: ["assets/images/5.webp","assets/images/5.1.webp"],
-    features: ["Dual heat zones","Italian boucle weave","Auto shut-off","Machine washable","Smart timer"],
-    care: "Detach the controller before washing. Tumble dry low."
+    "id": 5,
+    "name": "Farmhouse Wood Table Lamp",
+    "category": "Ambient Lighting",
+    "price": 51.99,
+    "short": "18-inch wood table lamp with warm beige shade.",
+    "long": "A cozy farmhouse-style table lamp with a solid wood look, warm beige fabric shade and stable tabletop design. It brings soft ambient lighting to living rooms, bedrooms, dining areas and reading corners.",
+    "features": [
+      "18-inch table lamp",
+      "Warm beige fabric shade",
+      "E26 bulb base",
+      "Corded electric design",
+      "Ideal for living room and bedroom"
+    ],
+    "care": "Use a dry cloth to clean the shade and base. Unplug before cleaning. Use compatible E26 bulbs up to the recommended wattage.",
+    "image": "assets/images/product/5.webp",
+    "images": [
+      "assets/images/product/5.webp",
+      "assets/images/product/5.1.webp",
+      "assets/images/product/5.2.webp",
+      "assets/images/product/5.3.webp",
+      "assets/images/product/5.4.webp"
+    ]
   },
   {
-    id: 6,
-    name: "Onyx Minimalist Table Tray",
-    category: "Modern Table Decor",
-    price: 89,
-    short: "Walnut-edged tray with hand-polished onyx insert.",
-    long: "A composed surface for your everyday rituals — coffee, candles, the remote. Magnetic feet anchor the tray to its companion coaster set (sold separately).",
-    image: "assets/images/6.webp",
-    images: ["assets/images/6.webp"],
-    features: ["Solid walnut frame","Polished onyx insert","Magnetic feet","Food-safe oil finish","Handmade in Portugal"],
-    care: "Re-oil the walnut twice a year with the included balm."
+    "id": 6,
+    "name": "Dimmable Ring Night Lamp",
+    "category": "Ambient Lighting",
+    "price": 12.2,
+    "short": "Three-color dimmable lamp for bedroom and living room.",
+    "long": "A modern ring-style night lamp with three lighting color options and adjustable brightness. Its simple ambient glow makes it suitable for bedside tables, living rooms, offices and cozy reading spaces.",
+    "features": [
+      "Three color light modes",
+      "Dimmable brightness",
+      "Modern ring design",
+      "Iron finish",
+      "Suitable for bedroom, living room and office"
+    ],
+    "care": "Keep away from water. Wipe with a soft dry cloth and avoid using abrasive cleaners on the lamp finish.",
+    "image": "assets/images/product/6.webp",
+    "images": [
+      "assets/images/product/6.webp",
+      "assets/images/product/6.1.webp",
+      "assets/images/product/6.2.webp",
+      "assets/images/product/6.3.webp",
+      "assets/images/product/6.4.webp"
+    ]
   },
   {
-    id: 7,
-    name: "Helio Smart Sound Vase",
-    category: "Smart Living Room Technology",
-    price: 312,
-    short: "Sculpted ceramic vase concealing a 360° wireless speaker.",
-    long: "Helio is a freshly cut bouquet by day and a 360° concert by night. The base houses a 40 W coaxial speaker tuned by acousticians from Copenhagen.",
-    image: "assets/images/7.webp",
-    images: ["assets/images/7.webp","assets/images/7.1.webp"],
-    features: ["40 W 360° driver","Wireless multi-room","Real ceramic body","12 h battery","Hidden controls"],
-    care: "Remove the vase insert before filling with water."
+    "id": 7,
+    "name": "Acrylic Sculptural Floor Lamp",
+    "category": "Ambient Lighting",
+    "price": 109.91,
+    "short": "Tall acrylic floor lamp with three color temperatures.",
+    "long": "A sculptural acrylic floor lamp designed as both a lighting fixture and a decorative art piece. With three adjustable color temperatures and a tall 170cm form, it creates a soft but impressive focal point for living rooms, bedrooms and lounge areas.",
+    "features": [
+      "170cm standing floor lamp",
+      "Three color temperatures",
+      "Energy-saving LED strip",
+      "Decorative acrylic design",
+      "Suitable for living room, bedroom and hotel spaces"
+    ],
+    "care": "Assemble carefully following the instructions. Clean acrylic plates with a soft cloth. Keep the base stable and avoid outdoor exposure.",
+    "image": "assets/images/product/7.webp",
+    "images": [
+      "assets/images/product/7.webp",
+      "assets/images/product/7.1.webp",
+      "assets/images/product/7.2.webp",
+      "assets/images/product/7.3.webp",
+      "assets/images/product/7.4.webp"
+    ]
   },
   {
-    id: 8,
-    name: "Atelier Storage Bench",
-    category: "Living Room Organization",
-    price: 458,
-    short: "Hand-upholstered bench with hidden cable-managed storage.",
-    long: "Soft enough to sit on, deep enough to hide a season of throws. A flip-top reveals USB-C and a discreet charging tray for tablets and phones.",
-    image: "assets/images/8.webp",
-    images: ["assets/images/8.webp"],
-    features: ["Italian linen upholstery","Soft-close lid","Integrated USB-C","Solid oak frame","Concealed casters"],
-    care: "Vacuum upholstery monthly. Spot-clean with neutral soap."
+    "id": 8,
+    "name": "Black Metal Aroma Diffuser",
+    "category": "Aroma & Wellness",
+    "price": 38.01,
+    "short": "150ml ultrasonic aroma diffuser with 7 LED colors.",
+    "long": "A compact 150ml essential oil diffuser with a black metal-style cover, ultrasonic mist technology and seven soothing LED colors. It works as an aroma diffuser, cool mist humidifier and night light for bedrooms, living rooms, spas and offices.",
+    "features": [
+      "150ml water tank",
+      "Ultrasonic quiet operation",
+      "7 LED color modes",
+      "Auto shut-off protection",
+      "Aroma diffuser and night light"
+    ],
+    "care": "Empty and clean the tank regularly. Use clean water and suitable essential oils. Do not overfill and keep the adapter dry.",
+    "image": "assets/images/product/8.webp",
+    "images": [
+      "assets/images/product/8.webp",
+      "assets/images/product/8.1.webp",
+      "assets/images/product/8.2.webp",
+      "assets/images/product/8.3.webp",
+      "assets/images/product/8.4.webp"
+    ]
   },
   {
-    id: 9,
-    name: "Selene Edge Lamp",
-    category: "Ambient Lighting",
-    price: 174,
-    short: "Halo wall sconce that frames a room with copper light.",
-    long: "Selene is a thin disc of light that hovers from any wall. The hidden LED engine glows outward, painting the wall behind it in a warm copper wash.",
-    image: "assets/images/9.webp",
-    images: ["assets/images/9.webp","assets/images/9.1.webp"],
-    features: ["27 W halo LED","Wireless wall-pad","Plaster-friendly mount","3000K warm white","Dimmable to 1%"],
-    care: "Dust the rim gently every few weeks."
+    "id": 9,
+    "name": "Hexagon Mirror Wall Stickers",
+    "category": "Mirror Decor",
+    "price": 0.74,
+    "short": "DIY acrylic mirror wall stickers for modern decor.",
+    "long": "A removable 3D hexagon acrylic mirror wall sticker set for creative home decoration. It can be applied to smooth walls, doors, furniture, cabinets and other clean surfaces to create a reflective modern accent.",
+    "features": [
+      "Acrylic mirror effect",
+      "Removable wall sticker",
+      "Hexagon DIY design",
+      "Multiple color options",
+      "Suitable for smooth surfaces"
+    ],
+    "care": "Apply only to clean and dry surfaces. Press firmly after installation. Clean gently with a soft dry cloth to avoid scratching.",
+    "image": "assets/images/product/9.webp",
+    "images": [
+      "assets/images/product/9.webp",
+      "assets/images/product/9.1.webp",
+      "assets/images/product/9.2.webp",
+      "assets/images/product/9.3.webp",
+      "assets/images/product/9.4.webp"
+    ]
   },
   {
-    id: 10,
-    name: "Kana Ceramic Bookends",
-    category: "Decorative Home Accessories",
-    price: 76,
-    short: "Pair of heavy ceramic bookends with leather feet.",
-    long: "Substantial, quiet and confident. Hand-thrown in a small studio in Kyoto and finished with a deep matte glaze.",
-    image: "assets/images/10.webp",
-    images: ["assets/images/10.webp"],
-    features: ["Hand-thrown ceramic","Vegetable-tanned leather feet","2.1 kg pair","Matte glaze","Signed by maker"],
-    care: "Wipe clean with a dry cloth."
+    "id": 10,
+    "name": "Silver Flower Metal Ornament",
+    "category": "Decorative Accessories",
+    "price": 24.43,
+    "short": "Silver flower sculpture on a mango wood base.",
+    "long": "A free-standing flower ornament for living room shelves, console tables, desks and windowsills. Made from aluminium with a textured silver finish and mounted on a mango wood base, it adds a soft decorative touch to modern or spring-themed interiors.",
+    "features": [
+      "Aluminium flower sculpture",
+      "Textured silver finish",
+      "Mango wood base",
+      "Free-standing design",
+      "Suitable for tables, shelves and consoles"
+    ],
+    "care": "Dust regularly with a soft cloth. Avoid soaking the wooden base or using harsh chemical cleaners.",
+    "image": "assets/images/product/10.webp",
+    "images": [
+      "assets/images/product/10.webp",
+      "assets/images/product/10.1.webp",
+      "assets/images/product/10.2.webp",
+      "assets/images/product/10.3.webp"
+    ]
   },
   {
-    id: 11,
-    name: "Halia Smart Curtain Rod",
-    category: "Smart Living Room Technology",
-    price: 339,
-    short: "Whisper-quiet motorised rail you control by voice.",
-    long: "Halia replaces your existing curtain rod and slips into the room without a single visible cable. Schedule sunrise opens, integrate with smart home routines, or pull the curtains by hand — it learns.",
-    image: "assets/images/11.webp",
-    images: ["assets/images/11.webp","assets/images/11.1.webp"],
-    features: ["Silent stepper motor","Voice + app control","Sunrise scheduling","Adaptive resistance","Up to 3 m span"],
-    care: "Wipe the rail occasionally with a soft dry cloth."
+    "id": 11,
+    "name": "HOME Mirror Wall Decals",
+    "category": "Mirror Decor",
+    "price": 30.53,
+    "short": "Acrylic HOME mirror wall stickers for entrance and living room.",
+    "long": "A decorative acrylic mirror wall decal set spelling HOME, designed for living rooms, bedrooms, entrance halls, corridors and office spaces. The removable mirror-effect pieces can be arranged creatively on smooth or semi-smooth surfaces.",
+    "features": [
+      "HOME sign mirror design",
+      "Acrylic mirror-effect material",
+      "Peel-and-stick installation",
+      "Removable and waterproof",
+      "Suitable for living room and entrance decor"
+    ],
+    "care": "Clean the wall before installation. Avoid rough or dusty surfaces. Peel carefully if repositioning and wipe with a soft cloth.",
+    "image": "assets/images/product/11.webp",
+    "images": [
+      "assets/images/product/11.webp",
+      "assets/images/product/11.1.webp",
+      "assets/images/product/11.2.webp",
+      "assets/images/product/11.3.webp",
+      "assets/images/product/11.4.webp"
+    ]
   },
   {
-    id: 12,
-    name: "Noma Smart Coffee Table",
-    category: "Smart Living Room Technology",
-    price: 729,
-    short: "Solid oak table with hidden wireless charging surface.",
-    long: "Two Qi charging spots are integrated invisibly under the oak veneer. A motion-activated under-lip glow guides the room at night.",
-    image: "assets/images/12.webp",
-    images: ["assets/images/12.webp"],
-    features: ["Solid oak surface","Dual Qi charging","Motion under-glow","Cable channel","Felt-lined drawer"],
-    care: "Apply natural oak wax every 6 months."
+    "id": 12,
+    "name": "Teal Pom Pom Cushion Set",
+    "category": "Soft Decor",
+    "price": 6.79,
+    "short": "Set of two teal filled cushions with pom-pom details.",
+    "long": "A set of two filled decorative cushions designed to add color, texture and comfort to sofas, armchairs and living room corners. The teal tone and pom-pom edges create a playful but cozy decorative accent.",
+    "features": [
+      "Set of two cushions",
+      "Teal decorative fabric",
+      "Pom-pom edge detail",
+      "Filled and ready to use",
+      "Approx. 40 x 40 cm"
+    ],
+    "care": "Spot clean gently with mild soap. Keep away from sharp objects and avoid machine washing unless label instructions allow it.",
+    "image": "assets/images/product/12.webp",
+    "images": [
+      "assets/images/product/12.webp",
+      "assets/images/product/12.1.webp"
+    ]
   },
   {
-    id: 13,
-    name: "Pira Smart Picture Frame",
-    category: "Decorative Home Accessories",
-    price: 219,
-    short: "Anti-glare digital frame that mimics fine art print.",
-    long: "Pira hides its screen behind a non-reflective matte panel so what you see looks like a printed photograph, not a tablet. Curate galleries from your phone.",
-    image: "assets/images/13.webp",
-    images: ["assets/images/13.webp","assets/images/13.1.webp"],
-    features: ["Matte anti-glare display","Auto brightness","Cloud gallery","Solid walnut frame","Portrait + landscape"],
-    care: "Wipe screen with the supplied microfibre."
+    "id": 13,
+    "name": "Embroidered Table Runner",
+    "category": "Table Decor",
+    "price": 13.26,
+    "short": "Simple embroidered runner for coffee and dining tables.",
+    "long": "A modern embroidered table runner designed for coffee tables, dining tables, console tables and display surfaces. The polyester fabric is lightweight, decorative and easy to match with living room or dining room styling.",
+    "features": [
+      "Modern embroidered design",
+      "Polyester material",
+      "Suitable for dining and coffee tables",
+      "Lightweight decor fabric",
+      "Easy to match with neutral interiors"
+    ],
+    "care": "Hand wash or gentle wash recommended. Avoid bleach and high heat. Iron on low setting if needed.",
+    "image": "assets/images/product/13.webp",
+    "images": [
+      "assets/images/product/13.webp",
+      "assets/images/product/13.1.webp",
+      "assets/images/product/13.2.webp",
+      "assets/images/product/13.3.webp",
+      "assets/images/product/13.4.webp"
+    ]
   },
   {
-    id: 14,
-    name: "Ferra Cast Iron Candle",
-    category: "Modern Table Decor",
-    price: 64,
-    short: "Slow-burn soy candle in a cast iron vessel.",
-    long: "A 60-hour candle with notes of fig leaf, cedar and dry tobacco. The cast iron vessel can be reused as a small planter once the wax is gone.",
-    image: "assets/images/14.webp",
-    images: ["assets/images/14.webp"],
-    features: ["60 h burn","Soy + coconut wax","Cast iron vessel","Wood wick","Made in small batches"],
-    care: "Trim the wood wick to 4 mm before each lighting."
+    "id": 14,
+    "name": "Striped Rectangular Tablecloth",
+    "category": "Table Decor",
+    "price": 13.41,
+    "short": "Water-treated polyester tablecloth with cotton-linen look.",
+    "long": "A rectangular tablecloth with a cotton-and-linen style effect and waterproof-treated polyester fabric. Suitable for dining tables, coffee tables, writing desks, bedside tables, sofa covers and decorative surface protection.",
+    "features": [
+      "Rectangular tablecloth",
+      "Polyester fabric",
+      "Water-treated surface",
+      "American country style",
+      "Multiple size options"
+    ],
+    "care": "Wipe small stains with a damp cloth. Wash gently when needed and avoid high temperature drying.",
+    "image": "assets/images/product/14.webp",
+    "images": [
+      "assets/images/product/14.webp",
+      "assets/images/product/14.1.webp",
+      "assets/images/product/14.2.webp",
+      "assets/images/product/14.3.webp",
+      "assets/images/product/14.4.webp"
+    ]
   },
   {
-    id: 15,
-    name: "Orin Air Quality Monitor",
-    category: "Air Purification",
-    price: 158,
-    short: "Pocket-sized monitor that reads PM2.5, VOC, CO₂ and humidity.",
-    long: "Orin is a small ceramic pebble that gently glows in copper when the room is fresh and in sage when it needs attention. The app maps the air of your home in real time.",
-    image: "assets/images/15.webp",
-    images: ["assets/images/15.webp"],
-    features: ["PM2.5, VOC, CO₂, RH%","Ambient glow","Battery powered","Wi-Fi + BLE","Compact ceramic body"],
-    care: "Charge with USB-C every 8–10 weeks."
+    "id": 15,
+    "name": "Wooden LED Alarm Clock",
+    "category": "Smart Living Room Technology",
+    "price": 11.82,
+    "short": "Wood-style digital clock with alarm and thermometer.",
+    "long": "A compact wooden-style LED digital alarm clock for desks, bedside tables and living room shelves. It displays time and temperature, supports 12/24-hour mode and includes voice activation for waking the display.",
+    "features": [
+      "LED time display",
+      "Alarm function",
+      "Temperature display",
+      "USB or AAA battery power",
+      "Voice activation mode"
+    ],
+    "care": "Use the included USB cable or suitable batteries. Keep dry and press reset if the clock does not start properly.",
+    "image": "assets/images/product/15.webp",
+    "images": [
+      "assets/images/product/15.webp",
+      "assets/images/product/15.1.webp",
+      "assets/images/product/15.2.webp",
+      "assets/images/product/15.3.webp",
+      "assets/images/product/15.4.webp"
+    ]
   },
   {
-    id: 16,
-    name: "Tessa Boucle Cushion Set",
-    category: "Smart Comfort Devices",
-    price: 124,
-    short: "Pair of premium boucle cushions with memory-foam core.",
-    long: "Soft, structured and supportive. The double-stitched edges keep their shape, and the inner memory foam offers gentle lumbar support during long living-room evenings.",
-    image: "assets/images/16.webp",
-    images: ["assets/images/16.webp"],
-    features: ["Italian boucle","Memory foam core","Set of two","Removable cover","OEKO-TEX certified"],
-    care: "Cover is machine washable at 30°C."
+    "id": 16,
+    "name": "Daisy Floral Table Runner",
+    "category": "Table Decor",
+    "price": 8.51,
+    "short": "Modern daisy table runner for dining and kitchen decor.",
+    "long": "A fresh daisy-themed table runner for dining rooms, kitchens, coffee tables and seasonal home decoration. The simple floral design works well for summer styling and light modern interiors.",
+    "features": [
+      "Daisy flower design",
+      "Polyester fiber material",
+      "Modern simple style",
+      "Multiple size options",
+      "Suitable for kitchen and dining decor"
+    ],
+    "care": "Wash gently in cold water. Do not bleach. Hang dry and iron lightly if necessary.",
+    "image": "assets/images/product/16.webp",
+    "images": [
+      "assets/images/product/16.webp",
+      "assets/images/product/16.1.webp",
+      "assets/images/product/16.2.webp",
+      "assets/images/product/16.3.webp",
+      "assets/images/product/16.4.webp"
+    ]
   },
   {
-    id: 17,
-    name: "Cova Aroma Sphere",
-    category: "Intelligent Aroma & Wellness",
-    price: 178,
-    short: "Spherical diffuser that releases scent in slow waves.",
-    long: "A waterless nebuliser disperses pure essential oils in slow, programmable waves. Cova holds 50 ml of oil and can run on a 14-day automatic cycle.",
-    image: "assets/images/17.webp",
-    images: ["assets/images/17.webp","assets/images/17.1.webp"],
-    features: ["Waterless nebulisation","50 ml capacity","14-day program","App scheduling","Glass + walnut body"],
-    care: "Rinse the glass chamber monthly with isopropyl alcohol."
+    "id": 17,
+    "name": "Printed Luxury Tablecloth",
+    "category": "Table Decor",
+    "price": 9.82,
+    "short": "Modern printed tablecloth with decorative tassel edge.",
+    "long": "A rectangular printed tablecloth suitable for dining tables, coffee tables, desks, sofa covers and home decoration. The tassel edge and modern print add a soft decorative layer to living and dining spaces.",
+    "features": [
+      "Printed polyester tablecloth",
+      "Decorative tassel edge",
+      "Multiple size options",
+      "Suitable for dining and coffee tables",
+      "Also usable as sofa or furniture cover"
+    ],
+    "care": "Machine wash gently or hand wash. Avoid bleach and excessive heat. Dry flat to protect the tassel edge.",
+    "image": "assets/images/product/17.webp",
+    "images": [
+      "assets/images/product/17.webp",
+      "assets/images/product/17.1.webp",
+      "assets/images/product/17.2.webp",
+      "assets/images/product/17.3.webp",
+      "assets/images/product/17.4.webp"
+    ]
   },
   {
-    id: 18,
-    name: "Linea Floating Shelf",
-    category: "Living Room Organization",
-    price: 132,
-    short: "Solid walnut shelf with integrated copper LED edge.",
-    long: "Linea hovers from any wall and lights what's beneath it with a soft copper LED line. Cables are routed through a hidden channel inside the wall mount.",
-    image: "assets/images/18.webp",
-    images: ["assets/images/18.webp"],
-    features: ["Solid walnut shelf","Integrated copper LED","Concealed wiring","Magnetic dimmer","60 / 90 / 120 cm"],
-    care: "Re-oil the walnut every 6 months."
+    "id": 18,
+    "name": "Teak Wood Chain Decor",
+    "category": "Decorative Accessories",
+    "price": 6.99,
+    "short": "Teak wood chain sculpture for table and shelf styling.",
+    "long": "A contemporary teak wood chain accent designed for coffee tables, shelves, console tables and decorative trays. Its natural wood tone adds warmth and sculptural texture to living room displays.",
+    "features": [
+      "Teak wood chain decor",
+      "Free-standing sculpture",
+      "Contemporary style",
+      "Natural brown finish",
+      "Suitable for shelves, tables and trays"
+    ],
+    "care": "Dust with a dry cloth. Avoid soaking or placing in very humid areas. Use furniture oil occasionally if the wood appears dry.",
+    "image": "assets/images/product/18.webp",
+    "images": [
+      "assets/images/product/18.webp",
+      "assets/images/product/18.1.webp",
+      "assets/images/product/18.2.webp"
+    ]
   },
   {
-    id: 19,
-    name: "Sora Ambient Projector",
-    category: "Ambient Lighting",
-    price: 296,
-    short: "Subtle starlight projector with circadian dimming.",
-    long: "Sora paints a constellation across the ceiling without ever distracting. A built-in light sensor dims the projection as the room grows brighter at dawn.",
-    image: "assets/images/19.webp",
-    images: ["assets/images/19.webp"],
-    features: ["6 calibrated star scenes","Circadian dimming","Quiet 18 dB fan","Tilt + rotate base","Wi-Fi enabled"],
-    care: "Wipe the lens with a microfibre cloth monthly."
+    "id": 19,
+    "name": "LED Rose Tree Lamp",
+    "category": "Ambient Lighting",
+    "price": 19.0,
+    "short": "Warm LED rose tree lamp for romantic home decor.",
+    "long": "A decorative LED rose tree table lamp with adjustable branches and soft warm lighting. It is suitable for bedrooms, living rooms, weddings, parties and gift decoration, powered by USB or batteries.",
+    "features": [
+      "Adjustable rose branches",
+      "Soft warm LED light",
+      "USB or battery powered",
+      "Indoor decorative lighting",
+      "Suitable for gifts and special occasions"
+    ],
+    "care": "Shape branches gently. Keep dry and avoid pulling the LED wires. Remove batteries when not used for a long time.",
+    "image": "assets/images/product/19.webp",
+    "images": [
+      "assets/images/product/19.webp",
+      "assets/images/product/19.1.webp",
+      "assets/images/product/19.2.webp",
+      "assets/images/product/19.3.webp",
+      "assets/images/product/19.4.webp"
+    ]
   },
   {
-    id: 20,
-    name: "Marin Stone Side Table",
-    category: "Modern Table Decor",
-    price: 384,
-    short: "Sculpted travertine side table with felt-lined base.",
-    long: "Marin is carved from a single block of travertine. The base is felt-lined to protect timber floors and to whisper across rugs when moved.",
-    image: "assets/images/20.webp",
-    images: ["assets/images/20.webp"],
-    features: ["Single-block travertine","Felt-lined base","Weight 11 kg","Sealed surface","Stackable design"],
-    care: "Reseal travertine once a year with the supplied wax."
+    "id": 20,
+    "name": "Concrete Grey Side Table",
+    "category": "Furniture & Tables",
+    "price": 52.86,
+    "short": "Modern concrete-grey side table for living room use.",
+    "long": "A compact engineered-wood side table with a concrete grey finish. It provides a stable surface for drinks, books, plants, lamps and decorative items in living rooms, bedrooms and small lounge spaces.",
+    "features": [
+      "Concrete grey finish",
+      "Engineered wood material",
+      "57 x 57 x 30 cm",
+      "Easy-clean tabletop",
+      "Suitable as coffee or side table"
+    ],
+    "care": "Wipe with a damp cloth and dry immediately. Avoid standing water and assemble on a flat surface.",
+    "image": "assets/images/product/20.webp",
+    "images": [
+      "assets/images/product/20.webp",
+      "assets/images/product/20.1.webp",
+      "assets/images/product/20.2.webp",
+      "assets/images/product/20.3.webp"
+    ]
   },
   {
-    id: 21,
-    name: "Riva Wireless Charging Pad",
-    category: "Smart Living Room Technology",
-    price: 98,
-    short: "Leather-wrapped fast wireless charger for the living room.",
-    long: "A discreet companion for the side table. The 15 W coil delivers fast wireless charging through a soft Italian leather wrap, and a hidden cable channel keeps the surface clean.",
-    image: "assets/images/21.webp",
-    images: ["assets/images/21.webp"],
-    features: ["15 W fast charge","Italian leather","Hidden cable channel","Anti-slip base","USB-C in"],
-    care: "Wipe leather with a slightly damp soft cloth."
+    "id": 21,
+    "name": "Round Decorating Mirror",
+    "category": "Mirror Decor",
+    "price": 24.38,
+    "short": "14-inch round mirror for table, wall or centerpiece decor.",
+    "long": "A 14-inch round mirror suitable for party centerpieces, wedding decor, table displays, wall decoration and craft projects. Its simple reflective surface can brighten decorative setups and add a clean accent to home styling.",
+    "features": [
+      "14-inch round mirror",
+      "Approx. 2mm thickness",
+      "Suitable for table or wall decoration",
+      "Ideal for weddings and centerpieces",
+      "Simple clean mirror finish"
+    ],
+    "care": "Handle carefully as glass may break. Clean with glass cleaner and a soft cloth. Avoid heavy pressure on the mirror surface.",
+    "image": "assets/images/product/21.webp",
+    "images": [
+      "assets/images/product/21.webp",
+      "assets/images/product/21.1.webp",
+      "assets/images/product/21.2.webp",
+      "assets/images/product/21.3.webp",
+      "assets/images/product/21.4.webp"
+    ]
   },
   {
-    id: 22,
-    name: "Halo Smart Wall Clock",
-    category: "Decorative Home Accessories",
-    price: 246,
-    short: "Architectural wall clock with subtle copper accent ring.",
-    long: "Designed in collaboration with Milanese clockmakers. The Halo's brushed brass ring frames a matte ceramic face with hand-applied indices and silent sweep mechanism.",
-    image: "assets/images/22.webp",
-    images: ["assets/images/22.webp","assets/images/22.1.webp"],
-    features: ["Silent sweep","Brushed brass ring","Matte ceramic face","Atomic time sync","40 cm diameter"],
-    care: "Dust the face gently with a soft brush."
+    "id": 22,
+    "name": "Wood Arch Decor Set",
+    "category": "Decorative Accessories",
+    "price": 5.99,
+    "short": "Three-piece wood arch decor set for coffee tables.",
+    "long": "A 3-piece wooden arch decor set designed for tabletop display, shelves and coffee table accents. The boho-inspired shape and warm gold-toned finish make it a simple decorative addition for modern living rooms.",
+    "features": [
+      "3-piece wooden arch set",
+      "Oak wood material",
+      "Gold lacquered finish",
+      "Boho tabletop decor",
+      "Lightweight and easy to display"
+    ],
+    "care": "Wipe clean with a soft dry cloth. Keep away from water and avoid dropping or scratching the lacquered surface.",
+    "image": "assets/images/product/22.webp",
+    "images": [
+      "assets/images/product/22.webp",
+      "assets/images/product/22.1.webp",
+      "assets/images/product/22.2.webp",
+      "assets/images/product/22.3.webp"
+    ]
   }
 ];
