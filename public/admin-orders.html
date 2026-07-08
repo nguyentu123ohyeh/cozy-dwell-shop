@@ -9,6 +9,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>
+(function(){
+  const AUTH_KEY = "pljr_admin_logged_in";
+
+  if(sessionStorage.getItem(AUTH_KEY) !== "yes"){
+    window.location.replace("admin-login.html");
+  }
+})();
+</script>
 </head>
 <body class="admin-body">
 <header class="site-header admin-header">
@@ -22,6 +31,7 @@
     </nav>
     <div class="nav-right">
       <a href="index.html" class="cart-btn">↗ Store</a>
+      <button class="cart-btn" id="admin-logout" type="button">Logout</button>
       <button class="menu-toggle" aria-label="Menu">☰</button>
     </div>
   </div>
@@ -97,6 +107,18 @@
   </aside>
 </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const logoutBtn = document.getElementById("admin-logout");
+  if(logoutBtn){
+    logoutBtn.addEventListener("click", function(){
+      sessionStorage.removeItem("pljr_admin_logged_in");
+      window.location.href = "admin-login.html";
+    });
+  }
+});
+</script>
+<script src="assets/js/admin-orders.js"></script>
 <script src="assets/js/admin-orders.js"></script>
 </body>
 </html>

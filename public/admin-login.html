@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Login — PAUL LAWRENCE JR LISTER</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="admin-body">
+
+<main class="admin-main">
+  <section class="page-head admin-page-head">
+    <div class="container">
+      <span class="eyebrow">Private Access</span>
+      <hr class="copper-divider" style="margin:14px auto 22px">
+      <h1>Admin Login</h1>
+      <p class="admin-lead">Enter password to view order history.</p>
+
+      <div class="admin-login-card">
+        <input id="admin-password" type="password" placeholder="Admin password">
+        <button class="btn btn-primary btn-block" id="admin-login-btn" type="button">Login</button>
+        <p id="admin-login-error" class="admin-login-error"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  const ADMIN_PASSWORD = "Leminh"; 
+  const AUTH_KEY = "pljr_admin_logged_in";
+
+  const passwordInput = document.getElementById("admin-password");
+  const loginBtn = document.getElementById("admin-login-btn");
+  const errorBox = document.getElementById("admin-login-error");
+
+  function login(){
+    const value = passwordInput.value.trim();
+
+    if(value === ADMIN_PASSWORD){
+      sessionStorage.setItem(AUTH_KEY, "yes");
+      window.location.href = "admin-orders.html";
+      return;
+    }
+
+    errorBox.textContent = "Wrong password. Please try again.";
+    passwordInput.value = "";
+    passwordInput.focus();
+  }
+
+  loginBtn.addEventListener("click", login);
+  passwordInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter") login();
+  });
+})();
+</script>
+
+</body>
+</html>
