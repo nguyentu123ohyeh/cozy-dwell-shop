@@ -21,6 +21,7 @@
 
   const PRODUCTS = window.PRODUCTS;
   const CART_KEY = "paul_lawrence_jr_lister_cart";
+  const ORDER_KEY = "paul_lawrence_jr_lister_orders";
   const COOKIE_KEY = "paul_lawrence_cookie_pref";
   const $ = (s,c)=>(c||document).querySelector(s);
   const $$ = (s,c)=>Array.from((c||document).querySelectorAll(s));
@@ -61,8 +62,61 @@
     });
   }
 
-  // Expose minimal API for inline use
-  window.PaulLawrenceStore = { addToCart, getCart, clearCart, updateCartBadge };
+  /* ---------- Order history functions (localStorage demo admin) ---------- */
+  function getOrders(){
+    try{ return JSON.parse(localStorage.getItem(ORDER_KEY)) || []; }
+    catch(e){ return []; }
+  }
+  function saveOrders(orders){ localStorage.setItem(ORDER_KEY, JSON.stringify(orders)); }
+  function orderRef(){
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,"0");
+    const day = String(d.getDate()).padStart(2,"0");
+    const code = Math.random().toString(36).slice(2,7).toUpperCase();
+    return `PLJR-${y}${m}${day}-${code}`;
+  }
+  function collectCustomer(form){
+    const fd = new FormData(form);
+    return {
+      name: String(fd.get("name") || "").trim(),
+      email: String(fd.get("email") || "").trim(),
+      phone: String(fd.get("phone") || "").trim(),
+      city: String(fd.get("city") || "").trim(),
+      address: String(fd.get("address") || "").trim(),
+      note: String(fd.get("note") || "").trim()
+    };
+  }
+  function createOrderRecord(method, form, extra){
+    const items = getCart();
+    const total = calculateCartTotal();
+    const ref = orderRef();
+    const paymentStatus = method === "paypal" ? "Paid" : "Unpaid";
+    const status = method === "paypal" ? "Payment received · Awaiting fulfilment" : "Order request received · Awaiting confirmation";
+    const order = {
+      id: ref,
+      ref,
+      createdAt: new Date().toISOString(),
+      method: method === "paypal" ? "PayPal" : "Order First",
+      status,
+      paymentStatus,
+      currency: "USD",
+      subtotal: Number(total.toFixed(2)),
+      total: Number(total.toFixed(2)),
+      items: items.map(i=>({
+        id:i.id, name:i.name, category:i.category, price:i.price, image:i.image, qty:i.qty, subtotal:Number((i.price*i.qty).toFixed(2))
+      })),
+      customer: collectCustomer(form),
+      paypalOrderId: extra && extra.paypalOrderId ? extra.paypalOrderId : ""
+    };
+    const orders = getOrders();
+    orders.unshift(order);
+    saveOrders(orders);
+    return order;
+  }
+
+  // Expose minimal API for inline/admin use
+  window.PaulLawrenceStore = { addToCart, getCart, clearCart, updateCartBadge, getOrders };
 
   /* ---------- Toast ---------- */
   function toast(msg){
@@ -353,12 +407,19 @@
         window.paypal.Buttons({
           fundingSource: window.paypal.FUNDING.PAYPAL,
           style:{layout:"vertical", color:"gold", shape:"pill", label:"paypal"},
+          onClick: (data, actions) => {
+            const form = $("#checkout-form");
+            if(!getCart().length){ alert("Your cart is empty."); return actions.reject(); }
+            if(form && !form.checkValidity()){ form.reportValidity(); return actions.reject(); }
+            return actions.resolve();
+          },
           createOrder: (data, actions) => actions.order.create({
             purchase_units:[{amount:{value: String(calculateCartTotal().toFixed(2))}}]
           }),
-          onApprove: (data, actions) => actions.order.capture().then(()=>{
+          onApprove: (data, actions) => actions.order.capture().then((details)=>{
+            const order = createOrderRecord("paypal", $("#checkout-form"), { paypalOrderId: details && details.id });
             clearCart();
-            location.href = "thank.html?method=paypal";
+            location.href = "thank.html?method=paypal&ref=" + encodeURIComponent(order.ref);
           })
         }).render("#paypal-button-container");
         paypalRendered = true;
@@ -374,8 +435,9 @@
       const form = e.target;
       if(!form.checkValidity()){ form.reportValidity(); return; }
       if(!getCart().length){ alert("Your cart is empty."); return; }
+      const order = createOrderRecord("order", form);
       clearCart();
-      location.href = "thank.html?method=order";
+      location.href = "thank.html?method=order&ref=" + encodeURIComponent(order.ref);
     });
   }
 
@@ -383,8 +445,9 @@
   function initThank(){
     const wrap = $("#thank-content");
     if(!wrap) return;
-    const method = new URLSearchParams(location.search).get("method");
-    const ref = "PAUL LAWRENCE JR LISTER-"+Date.now().toString(36).toUpperCase().slice(-8);
+    const params = new URLSearchParams(location.search);
+    const method = params.get("method");
+    const ref = params.get("ref") || "PAUL LAWRENCE JR LISTER-"+Date.now().toString(36).toUpperCase().slice(-8);
     let title, msg, status;
     if(method === "paypal"){
       title = "PayPal Payment Completed";

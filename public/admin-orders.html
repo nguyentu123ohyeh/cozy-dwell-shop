@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Orders — PAUL LAWRENCE JR LISTER</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="admin-body">
+<header class="site-header admin-header">
+  <div class="container nav">
+    <a href="index.html" class="logo"><span class="brand-logo-main">PAUL</span><span class="brand-logo-accent">LAWRENCE JR LISTER</span></a>
+    <nav class="nav-links">
+      <a href="admin-orders.html" class="active">Admin Orders</a>
+      <a href="products.html">Storefront</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+    <div class="nav-right">
+      <a href="index.html" class="cart-btn">↗ Store</a>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="admin-main">
+  <section class="page-head admin-page-head">
+    <div class="container">
+      <span class="eyebrow">Admin Dashboard</span>
+      <hr class="copper-divider" style="margin:14px auto 22px">
+      <h1>Order History</h1>
+      <p class="admin-lead">Review submitted checkout requests, customer details, order items and payment method.</p>
+      <div class="admin-storage-note">Local demo storage · Same-browser order history</div>
+    </div>
+  </section>
+
+  <section class="admin-section">
+    <div class="container">
+      <div class="admin-stats" id="admin-stats"></div>
+
+      <div class="admin-panel admin-toolbar">
+        <div class="admin-search-wrap">
+          <label for="admin-search">Search orders</label>
+          <input id="admin-search" type="search" placeholder="Search by ref, queue, customer, email, load date, product...">
+          <button class="admin-search-clear" id="admin-search-clear" type="button">Clear</button>
+        </div>
+        <div class="admin-filter-wrap">
+          <label for="admin-status">Status</label>
+          <select id="admin-status">
+            <option value="all">All statuses</option>
+            <option value="Queue">Queue</option>
+            <option value="Awaiting">Awaiting</option>
+            <option value="Processing">Processing</option>
+            <option value="Dispatched">Dispatched</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+        <div class="admin-filter-wrap">
+          <label for="admin-method">Method</label>
+          <select id="admin-method">
+            <option value="all">All methods</option>
+            <option value="Order First">Order First</option>
+            <option value="PayPal">PayPal</option>
+          </select>
+        </div>
+        <div class="admin-actions-inline">
+          <button class="btn btn-outline" id="admin-export" type="button">Export CSV</button>
+          <button class="btn btn-copper" id="admin-seed" type="button">Add Queue Order</button>
+        </div>
+      </div>
+
+      <div class="admin-panel admin-table-panel">
+        <div class="admin-table-top">
+          <div>
+            <span class="eyebrow">Orders</span>
+            <h2>Submitted order records</h2>
+            <small class="admin-result-count" id="admin-result-count">0 results</small>
+          </div>
+          <button class="admin-danger" id="admin-clear" type="button">Clear History</button>
+        </div>
+        <div id="admin-orders-root"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="admin-modal" id="admin-modal" hidden>
+  <div class="admin-modal-backdrop" data-close-modal></div>
+  <aside class="admin-modal-card" role="dialog" aria-modal="true" aria-labelledby="admin-modal-title">
+    <button class="admin-modal-close" type="button" data-close-modal aria-label="Close">×</button>
+    <div id="admin-modal-content"></div>
+  </aside>
+</div>
+
+<script src="assets/js/admin-orders.js"></script>
+</body>
+</html>
